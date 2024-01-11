@@ -32,11 +32,13 @@ app.get("/professional", (req, res) => {
 });
 
 const corsOptions = {
-    origin: 'http://127.0.0.1:5500',
+    origin: '*',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   };
-//app.use(cors(corsOptions));
-app.use(cors());
+app.use(cors(corsOptions));
+
+//app.use(cors());
+
 app.listen(process.env.PORT || 3000, () => {
   console.log("Web Server is listening at port " + (process.env.PORT || 3000));
 });
